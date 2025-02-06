@@ -15,4 +15,4 @@ It has features such as-
 9. Color-picker
 10. Editor
 
-Project link is in description! Let me know your feedback on these project.
+Let me know your feedback on this project.
