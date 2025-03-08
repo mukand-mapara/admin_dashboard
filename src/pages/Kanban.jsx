@@ -43,7 +43,7 @@ const Kanban = () => (
   >
     {/* Animated Header */}
     <motion.div variants={childVariants}>
-      <Header category="App" title="Kanban" />
+      <Header category="App" title="Todos" />
     </motion.div>
 
     {/* Animated Kanban Board */}

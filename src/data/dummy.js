@@ -16,12 +16,13 @@ import {
   FiShoppingCart,
 } from "react-icons/fi";
 import {
-  BsKanban,
+  // BsKanban,
   BsBarChart,
   BsBoxSeam,
   BsCurrencyDollar,
   BsShield,
   BsChatLeft,
+  BsClipboardCheck,
 } from "react-icons/bs";
 import { BiColorFill } from "react-icons/bi";
 import { IoMdContacts } from "react-icons/io";
@@ -31,18 +32,19 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { GiLouvrePyramid } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
-import avatar from "./avatar.jpg";
-import avatar2 from "./avatar2.jpg";
-import avatar3 from "./avatar3.png";
-import avatar4 from "./avatar4.jpg";
-import product1 from "./product1.jpg";
-import product2 from "./product2.jpg";
-import product3 from "./product3.jpg";
-import product4 from "./product4.jpg";
-import product5 from "./product5.jpg";
-import product6 from "./product6.jpg";
-import product7 from "./product7.jpg";
-import product8 from "./product8.jpg";
+import avatar from "../images/avatar.jpg";
+import avatar2 from "../images/avatar2.jpg";
+import avatar3 from "../images/avatar3.png";
+import avatar4 from "../images/avatar4.jpg";
+import avatar5 from "../images/avatar5.jpg";
+import product1 from "../images/product1.jpg";
+import product2 from "../images/product2.jpg";
+import product3 from "../images/product3.jpg";
+import product4 from "../images/product4.jpg";
+import product5 from "../images/product5.jpg";
+import product6 from "../images/product6.jpg";
+import product7 from "../images/product7.jpg";
+import product8 from "../images/product8.jpg";
 
 export const gridOrderImage = (props) => (
   <div>
@@ -545,8 +547,8 @@ export const links = [
         icon: <AiOutlineCalendar />,
       },
       {
-        name: "kanban",
-        icon: <BsKanban />,
+        name: "todos",
+        icon: <BsClipboardCheck />,
       },
       {
         name: "editor",
@@ -621,36 +623,151 @@ export const cartData = [
 
 export const chatData = [
   {
+    id: 1,
     image: avatar2,
     message: "Roman Joined the Team!",
     desc: "Congratulate him",
     time: "9:08 AM",
   },
   {
+    id: 2,
     image: avatar3,
     message: "New message received",
-    desc: "Salma sent you new message",
+    desc: "Salma: Hi, There",
     time: "11:56 AM",
   },
   {
+    id: 3,
     image: avatar4,
     message: "New Payment received",
     desc: "Check your earnings",
     time: "4:39 AM",
   },
   {
-    image: avatar,
+    id: 4,
+    image: avatar5,
     message: "Jolly completed tasks",
     desc: "Assign her new tasks",
     time: "1:12 AM",
   },
+  {
+    id: 5,
+    image: avatar2,
+    message: "Alex sent a document",
+    desc: "Review the document",
+    time: "2:30 PM",
+  },
+  {
+    id: 6,
+    image: avatar3,
+    message: "Emily shared a file",
+    desc: "Download and check it",
+    time: "5:45 PM",
+  },
+  {
+    id: 7,
+    image: avatar4,
+    message: "David updated the project",
+    desc: "Check the latest changes",
+    time: "7:20 PM",
+  },
+  {
+    id: 8,
+    image: avatar5,
+    message: "Sophia commented on your post",
+    desc: "See what she said",
+    time: "8:15 AM",
+  },
+  {
+    id: 9,
+    image: avatar4,
+    message: "Michael sent a friend request",
+    desc: "Accept or ignore it",
+    time: "10:05 AM",
+  },
+  {
+    id: 10,
+    image: avatar3,
+    message: "Olivia liked your photo",
+    desc: "Check the notifications",
+    time: "3:50 PM",
+  },
+];
+
+export const automatedResponses = [
+  // Friendly greetings
+  "Hey! How's your day going? 😊",
+  "Great to hear from you! What's up?",
+  "Hello! How can I help you today?",
+  "Hi there! Hope you're having a good day!",
+
+  // General conversation
+  "That's interesting! Tell me more about it.",
+  "I totally get what you mean! 👍",
+  "Sounds good! What are your thoughts on this?",
+  "That's awesome! How long have you been working on this?",
+  "Really? That's fascinating! 😃",
+
+  // Agreement & Support
+  "You've got a good point there!",
+  "I completely agree with you on that.",
+  "That makes a lot of sense, actually.",
+  "You're absolutely right about that!",
+
+  // Questions & Engagement
+  "What do you think we should do next?",
+  "Have you tried any other approaches?",
+  "What's your experience been like with this?",
+  "That's a great start! What else did you have in mind?",
+
+  // Empathy & Understanding
+  "I know exactly what you mean 😊",
+  "That must have been challenging to deal with",
+  "I can see why you'd feel that way",
+  "That's definitely worth considering",
+
+  // Professional but friendly
+  "I'd be happy to look into that for you",
+  "Let me check that out real quick",
+  "Give me a moment to review this",
+  "I can definitely help you with that 👍",
+
+  // Follow-ups
+  "Is there anything else you'd like to discuss?",
+  "How does that sound to you?",
+  "Would you like me to explain anything further?",
+  "Let me know if you need any clarification!",
+
+  // Positive reinforcement
+  "That's a brilliant idea! 🌟",
+  "You're doing great with this!",
+  "Nice work on figuring that out!",
+  "That's actually a really clever solution",
+
+  // Problem-solving
+  "Let's work through this together",
+  "We can definitely find a solution for this",
+  "I've got some ideas that might help",
+  "How about we try this approach?",
+
+  // Casual acknowledgments
+  "Got it! 👌",
+  "Makes sense to me!",
+  "I hear you!",
+  "For sure! I understand",
+
+  // Encouraging continuation
+  "Tell me more about your experience",
+  "What happened next?",
+  "And how did that work out?",
+  "What are your thoughts on this?",
 ];
 
 export const earningData = [
   {
     icon: <MdOutlineSupervisorAccount />,
     amount: "39,354",
-    percentage: "-4%",
+    percentage: "4%",
     title: "Customers",
     iconColor: "#03C9D7",
     iconBg: "#E5FAFB",
@@ -678,7 +795,7 @@ export const earningData = [
   {
     icon: <HiOutlineRefresh />,
     amount: "39,354",
-    percentage: "-12%",
+    percentage: "12%",
     title: "Refunds",
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
@@ -947,7 +1064,7 @@ export const userProfileData = [
     desc: "To-do and Daily Tasks",
     iconColor: "rgb(255, 244, 229)",
     iconBg: "rgb(254, 201, 15)",
-    redirectTo: "/kanban"
+    redirectTo: "/todos",
   },
 ];
 

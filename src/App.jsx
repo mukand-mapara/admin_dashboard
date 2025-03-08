@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion";
 
 import "./App.css";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
-import Loader from "./components/Loader"; // Import Loader
+import Loader from "./components/Loader";
 import {
   Ecommerce,
   Orders,
@@ -38,7 +38,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate page loading delay
     setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -93,7 +92,7 @@ const App = () => {
                   <Route path="/orders" element={<Orders />} />
                   <Route path="/employees" element={<Employees />} />
                   <Route path="/customers" element={<Customers />} />
-                  <Route path="/kanban" element={<Kanban />} />
+                  <Route path="/todos" element={<Kanban />} />
                   <Route path="/editor" element={<Editor />} />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/color-picker" element={<ColorPicker />} />

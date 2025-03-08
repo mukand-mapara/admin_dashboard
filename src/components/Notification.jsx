@@ -17,7 +17,7 @@ const Notification = () => {
         </div>
         <Button icon={<MdOutlineCancel />} color="rgb(153, 171, 180)" bgHoverColor="light-gray" size="2xl" borderRadius="50%" />
       </div>
-      <div className="mt-5 ">
+      <div className="mt-5 max-h-80 overflow-y-auto">
         {chatData?.map((item, index) => (
           <div key={index} className="flex items-center leading-8 gap-5 border-b-1 border-color p-3">
             <img className="rounded-full h-10 w-10" src={item.image} alt={item.message} />

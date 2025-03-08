@@ -10,7 +10,6 @@ const Loader = () => {
     }, 4000);
   }, []);
 
-  // Particle component for background effects
   const Particle = ({ angle }) => (
     <motion.div
       className="absolute w-2 h-2 bg-blue-400 rounded-full"

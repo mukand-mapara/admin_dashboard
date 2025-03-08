@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { 
   GridComponent, 
   Inject, 
@@ -26,7 +26,6 @@ const containerVariants = {
   },
 };
 
-// Child variants for individual elements
 const childVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
@@ -37,7 +36,30 @@ const childVariants = {
 };
 
 const Employees = () => {
-  const toolbarOptions = ["Search"];
+  const [searchText, setSearchText] = useState("");
+  const [gridData, setGridData] = useState(employeesData);
+  
+  // Handle search input change
+  const handleSearchChange = useCallback((e) => {
+    const searchValue = e.target.value;
+    setSearchText(searchValue);
+    
+    if (searchValue.trim() === "") {
+      setGridData(employeesData);
+      return;
+    }
+    
+    // Filter the data based on all searchable columns
+    const filteredData = employeesData.filter(item => {
+      return employeesGrid.some(column => {
+        const fieldValue = item[column.field]?.toString().toLowerCase();
+        return fieldValue?.includes(searchValue.toLowerCase());
+      });
+    });
+    
+    setGridData(filteredData);
+  }, []);
+
   const editing = { allowDeleting: true, allowEditing: true };
 
   return (
@@ -47,21 +69,28 @@ const Employees = () => {
       initial="hidden"
       animate="visible"
     >
-      {/* Animated Header */}
       <motion.div variants={childVariants}>
         <Header category="Page" title="Employees" />
       </motion.div>
+      
+      <motion.div variants={childVariants} className="mb-4">
+        <input
+          type="text"
+          value={searchText}
+          onChange={handleSearchChange}
+          placeholder="Search employees..."
+          className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </motion.div>
 
-      {/* Animated Grid Component */}
       <motion.div variants={childVariants}>
         <GridComponent
-          dataSource={employeesData}
+          dataSource={gridData}
           width="auto"
           allowPaging
           allowSorting
           pageSettings={{ pageCount: 5 }}
           editSettings={editing}
-          toolbar={toolbarOptions}
         >
           <ColumnsDirective>
             {employeesGrid.map((item, index) => (

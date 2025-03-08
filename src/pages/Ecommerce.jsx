@@ -18,7 +18,7 @@ import {
   ecomPieChartData,
 } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-import product9 from "../data/product9.jpg";
+import product9 from "../images/product9.jpg";
 
 const Ecommerce = () => {
   const reportRef = useRef();
@@ -38,7 +38,7 @@ const Ecommerce = () => {
 
   const [dynamicExpense, setDynamicExpense] = useState({
     currentAmount: 48487,
-    percentage: "-12%",
+    percentage: "12%",
   });
 
   useEffect(() => {
@@ -118,19 +118,22 @@ const Ecommerce = () => {
 
     try {
       const input = reportRef.current;
-      const canvas = await html2canvas(input, { scale: 2 });
+      const canvas = await html2canvas(input, { scale: 1.5 });
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "PNG", 10, 10, pdfWidth - 20, pdfHeight);
-      pdf.save("report.pdf");
+      pdf.save("Mukand.pdf");
     } catch (error) {
       console.error("Error generating PDF:", error);
     }
   };
 
-  const totalEarnings = dynamicEarnings.reduce((total, item) => total + item.currentAmount,0);
+  const totalEarnings = dynamicEarnings.reduce(
+    (total, item) => total + item.currentAmount,
+    0
+  );
 
   return (
     <div className="mt-12">
@@ -142,12 +145,12 @@ const Ecommerce = () => {
         className="flex flex-wrap lg:flex-nowrap justify-center"
       >
         <motion.div
-          className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-left"
+          className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-left"
           whileHover={{ scale: 1.05 }}
         >
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-600">Earnings</p>
+              <p className="font-bold">Earnings</p>
               <p className="text-2xl">
                 ${Math.round(totalEarnings).toLocaleString()}
               </p>
@@ -199,7 +202,7 @@ const Ecommerce = () => {
                   {item.percentage}
                 </span>
               </p>
-              <p className="text-sm mt-1 text-black">{item.title}</p>
+              <p className="text-sm mt-1">{item.title}</p>
             </motion.div>
           ))}
         </motion.div>

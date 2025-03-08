@@ -4,7 +4,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { Button } from ".";
 import { userProfileData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-import avatar from "../data/avatar.jpg";
+import avatar from "../images/avatar.jpg";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
