@@ -10,7 +10,7 @@ import {
 import { employeesData, employeesGrid } from "../data/dummy";
 import { Header } from "../components";
 import { motion } from "framer-motion";
-
+ 
 // Container variants for a smooth entrance with staggered children
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
